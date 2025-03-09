@@ -1,0 +1,23 @@
+<view class="clock-container {{isLandscape ? 'landscape' : ''}}">
+  <!-- 时间显示部分 -->
+  <view class="time-section">
+    <view class="time">{{timeDisplay}}</view>
+    <view class="period" wx:if="{{is12Hour}}">{{period}}</view>
+  </view>
+
+  <!-- 日期显示部分 -->
+  <view class="date-section">
+    <view class="date">{{dateDisplay}}</view>
+    <view class="weekday">{{weekdayDisplay}}</view>
+  </view>
+
+  <!-- 按钮组 -->
+  <view class="button-group">
+    <view class="format-toggle" bindtap="toggleTimeFormat">
+      <text>{{is12Hour ? '切换24小时制' : '切换12小时制'}}</text>
+    </view>
+    <view class="orientation-toggle" bindtap="toggleOrientation">
+      <text>{{isLandscape ? '切换竖屏' : '切换横屏'}}</text>
+    </view>
+  </view>
+</view> 

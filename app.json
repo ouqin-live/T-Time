@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/clock/clock"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "T-Time",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "pageOrientation": "auto",
+  "permission": {
+    "scope.deviceOrientation": {
+      "desc": "需要访问设备方向以支持横竖屏切换"
+    }
+  }
+}

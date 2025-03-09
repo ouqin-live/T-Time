@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="starry-sky">
+    <view class="star" wx:for="{{50}}" wx:key="index"></view>
+  </view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <clock />
+</view> 

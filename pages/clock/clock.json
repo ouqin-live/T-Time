@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "clock": "/components/clock/clock"
+  },
+  "navigationBarTitleText": "T-Time",
+  "pageOrientation": "auto"
+} 
