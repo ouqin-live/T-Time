@@ -3,11 +3,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #000000 0%, #1a1f25 100%);
   padding: 20px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+}
+
+/* 夜间容器 */
+.night-container {
+  background: linear-gradient(135deg, #000000 0%, #1a1f25 100%);
+}
+
+/* 白天容器 */
+.day-container {
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
 }
 
 /* 星空背景 */

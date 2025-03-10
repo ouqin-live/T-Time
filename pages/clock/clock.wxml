@@ -1,9 +1,12 @@
-<view class="container">
-  <view class="starry-sky">
-    <view class="star" wx:for="{{50}}" wx:key="index"></view>
-  </view>
-  <view class="meteor"></view>
-  <view class="meteor"></view>
-  <view class="meteor"></view>
-  <clock />
+<view class="container {{isDayMode ? 'day-container' : 'night-container'}}">
+  <!-- 夜间模式的星空 -->
+  <block wx:if="{{!isDayMode}}">
+    <view class="starry-sky">
+      <view class="star" wx:for="{{50}}" wx:key="index"></view>
+    </view>
+    <view class="meteor"></view>
+    <view class="meteor"></view>
+    <view class="meteor"></view>
+  </block>
+  <clock bindmodeChange="onClockModeChange" />
 </view> 

@@ -3,9 +3,7 @@ Component({
     timeDisplay: '',
     dateDisplay: '',
     weekdayDisplay: '',
-    period: '',
-    is12Hour: false,
-    isLandscape: false
+    isDayMode: true
   },
 
   lifetimes: {
@@ -15,6 +13,13 @@ Component({
       this.timer = setInterval(() => {
         this.updateTime();
       }, 1000);
+
+      // 根据当前时间自动设置日夜模式
+      const now = new Date();
+      const hours = now.getHours();
+      const newMode = hours >= 6 && hours < 18;
+      this.setData({ isDayMode: newMode });
+      this.triggerEvent('modeChange', newMode);
     },
 
     detached() {
@@ -30,19 +35,10 @@ Component({
       const now = new Date();
       
       // 更新时间显示
-      let hours = now.getHours();
+      const hours = now.getHours().toString().padStart(2, '0');
       const minutes = now.getMinutes().toString().padStart(2, '0');
       const seconds = now.getSeconds().toString().padStart(2, '0');
-      
-      // 处理12小时制
-      if (this.data.is12Hour) {
-        this.setData({
-          period: hours >= 12 ? 'PM' : 'AM'
-        });
-        hours = hours % 12 || 12;
-      }
-      
-      const timeDisplay = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
+      const timeDisplay = `${hours}:${minutes}:${seconds}`;
       
       // 更新日期显示
       const year = now.getFullYear();
@@ -61,18 +57,13 @@ Component({
       });
     },
 
-    toggleTimeFormat() {
+    // 切换日夜模式
+    toggleMode() {
+      const newMode = !this.data.isDayMode;
       this.setData({
-        is12Hour: !this.data.is12Hour
-      }, () => {
-        this.updateTime();
+        isDayMode: newMode
       });
-    },
-
-    toggleOrientation() {
-      this.setData({
-        isLandscape: !this.data.isLandscape
-      });
+      this.triggerEvent('modeChange', newMode);
     }
   }
 }); 
